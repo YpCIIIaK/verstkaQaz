@@ -95,3 +95,55 @@ const swiperHeroNews = new Swiper(".swiper-hero-news", {
     },
   },
 });
+
+(function () {
+  const EASE = 0.12;
+  const media = window.matchMedia("(max-width: 768px)");
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  let target = window.scrollY;
+  let animating = false;
+
+  const maxScroll = () =>
+    Math.max(document.documentElement.scrollHeight - window.innerHeight, 0);
+
+  const step = () => {
+    const delta = (target - window.scrollY) * EASE;
+
+    if (Math.abs(delta) < 0.5) {
+      window.scrollTo(0, target);
+      animating = false;
+      return;
+    }
+
+    window.scrollTo(0, window.scrollY + delta);
+    requestAnimationFrame(step);
+  };
+
+  const onWheel = (e) => {
+    if (media.matches || reduced.matches) return;
+    if (document.body.classList.contains("noscroll")) return;
+    if (e.ctrlKey) return;
+    if (e.target.closest(".swiper, .modal, [data-lenis-prevent]")) return;
+
+    if (!animating) target = window.scrollY;
+
+    target = Math.max(0, Math.min(target + e.deltaY, maxScroll()));
+    e.preventDefault();
+
+    if (!animating) {
+      animating = true;
+      requestAnimationFrame(step);
+    }
+  };
+
+  const stop = () => {
+    animating = false;
+    target = window.scrollY;
+  };
+
+  window.addEventListener("wheel", onWheel, { passive: false });
+  window.addEventListener("keydown", stop);
+  window.addEventListener("mousedown", stop);
+  window.addEventListener("resize", stop);
+})();
