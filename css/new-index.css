@@ -35,21 +35,89 @@
 
 /* ─── ШАПКА ─────────────────────────────────────────────── */
 
-.header_hero {
-  background: var(--color-header-bg);
+/* тёмная полупрозрачная поверх видео, высота 90 = 24 + 42 + 24 */
+.header_hero,
+.header_hero.scrolled {
+  background: rgba(37, 35, 35, 0.6);
   -webkit-backdrop-filter: blur(calc(4 * var(--width-multiplier)));
   backdrop-filter: blur(calc(4 * var(--width-multiplier)));
 }
-.header_hero.scrolled {
-  background: var(--color-header-bg);
+.header__box {
+  display: flex;
+  flex-direction: column;
+  padding: calc(24 * var(--width-multiplier)) 0;
 }
-/* в новом хедере текст тёмный, а не белый как было */
+@media (max-width: 768px) {
+  .header__box {
+    padding: calc(12 * var(--width-multiplier)) 0;
+  }
+}
+.header__box-top {
+  height: calc(42 * var(--width-multiplier));
+  padding: 0;
+  border-bottom: none;
+  gap: calc(48 * var(--width-multiplier));
+  justify-content: flex-start;
+}
+@media (max-width: 768px) {
+  .header__box-top {
+    height: calc(35 * var(--width-multiplier));
+    gap: calc(10 * var(--width-multiplier));
+  }
+}
+/* логотип 236×33 */
+.header__logo img {
+  width: calc(236 * var(--width-multiplier));
+  height: calc(33 * var(--width-multiplier));
+  -o-object-fit: contain;
+  object-fit: contain;
+  -o-object-position: left center;
+  object-position: left center;
+}
+@media (max-width: 768px) {
+  .header__logo img {
+    width: calc(150 * var(--width-multiplier));
+    height: calc(21 * var(--width-multiplier));
+  }
+}
+
+/* поиск: белое поле с оранжевой рамкой */
+.header-search {
+  width: calc(340 * var(--width-multiplier));
+  height: calc(32 * var(--width-multiplier));
+  padding: calc(4 * var(--width-multiplier)) calc(4 * var(--width-multiplier))
+    calc(4 * var(--width-multiplier)) calc(10 * var(--width-multiplier));
+  border-radius: calc(6 * var(--width-multiplier));
+  background: var(--color-white);
+  border: calc(1 * var(--width-multiplier)) solid var(--color-primary);
+}
+.header-search__input {
+  color: var(--color-dark);
+  font-size: calc(16 * var(--width-multiplier));
+}
+.header-search__input::-moz-placeholder {
+  color: var(--color-dark-60);
+}
+.header-search__input::placeholder {
+  color: var(--color-dark-60);
+}
+
+/* правая группа: языки, телефон, две кнопки, бургер */
+.header__info-col {
+  gap: calc(16 * var(--width-multiplier));
+  margin-left: auto;
+}
+@media (max-width: 768px) {
+  .header__info-col {
+    gap: calc(10 * var(--width-multiplier));
+  }
+}
 .header_hero .header__call,
 .header_hero .langs__link,
 .header_hero .langs__active {
-  color: var(--color-dark);
+  color: var(--color-white);
+  font-size: calc(16 * var(--width-multiplier));
 }
-/* стрелка тянет цвет из .langs__active, чтобы краснеть на ховере вместе с ним */
 .langs__arrow {
   flex-shrink: 0;
   width: calc(16 * var(--width-multiplier));
@@ -63,108 +131,98 @@
   rotate: 180deg;
 }
 
-/* высота шапки: 24 + 42 + 24 = 90 */
-.header__box {
+/* кнопки: фаска вместо скруглений, как у остальных блоков */
+.header__btn {
+  --cut: calc(10 * var(--width-multiplier));
+
   display: flex;
-  flex-direction: column;
-  padding: calc(24 * var(--width-multiplier)) 0;
-}
-@media (max-width: 768px) {
-  .header__box {
-    gap: calc(12 * var(--width-multiplier));
-    padding: calc(12 * var(--width-multiplier)) 0;
-  }
-}
-.header__box-top {
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
   height: calc(42 * var(--width-multiplier));
-  padding: 0;
-  border-bottom: none;
+  padding: 0 calc(36 * var(--width-multiplier));
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-size: calc(15 * var(--width-multiplier));
+  font-weight: 600;
+  line-height: calc(18 * var(--width-multiplier));
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  clip-path: polygon(
+    var(--cut) 0%,
+    100% 0%,
+    100% calc(100% - var(--cut)),
+    calc(100% - var(--cut)) 100%,
+    0% 100%,
+    0% var(--cut)
+  );
 }
-@media (max-width: 768px) {
-  .header__box-top {
-    height: calc(35 * var(--width-multiplier));
-  }
-}
-.header__logo img {
-  width: auto;
-  height: calc(50 * var(--width-multiplier));
-  -o-object-fit: contain;
-  object-fit: contain;
-}
-@media (max-width: 768px) {
-  .header__logo img {
-    height: calc(32 * var(--width-multiplier));
-  }
-}
-.header-search {
-  width: calc(470 * var(--width-multiplier));
-  height: calc(32 * var(--width-multiplier));
-  padding: calc(4 * var(--width-multiplier)) calc(10 * var(--width-multiplier));
-}
-.header-search__input::-moz-placeholder {
-  color: var(--color-dark-muted);
-}
-.header-search__input::placeholder {
-  color: var(--color-dark-muted);
-}
-.header__info-col {
-  gap: calc(32 * var(--width-multiplier));
-}
-@media (max-width: 768px) {
-  .header__info-col {
-    gap: calc(10 * var(--width-multiplier));
-  }
+/* «Каталог 2027» — прозрачная с обводкой. Обводку рисуем svg-фоном:
+   обычный border clip-path срезал бы по углам, а заливка вторым слоем
+   не даёт увидеть видео под шапкой */
+.header__btn_ghost {
+  padding: 0 calc(20 * var(--width-multiplier));
+  background: transparent;
+  clip-path: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 142 42' preserveAspectRatio='none'%3E%3Cpath d='M10.5 0.5H141.5V31.5L131.5 41.5H0.5V10.5Z' fill='none' stroke='rgba(255,255,255,0.6)' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
 
-/* кнопки в шапке: основная оранжевая и прозрачная с обводкой */
-.header__btns {
-  display: flex;
-  align-items: center;
-  gap: calc(12 * var(--width-multiplier));
-}
-.header__btn {
-  height: calc(42 * var(--width-multiplier));
-  padding: 0 calc(20 * var(--width-multiplier));
-  font-size: calc(14 * var(--width-multiplier));
-  font-weight: 600;
-  line-height: calc(17 * var(--width-multiplier));
-  white-space: nowrap;
-}
-.header__btn_ghost {
-  background: transparent;
-  border: calc(1 * var(--width-multiplier)) solid var(--color-primary);
-  color: var(--color-primary);
-}
 @media (hover: hover) and (pointer: fine) {
+  .header__btn:hover {
+    box-shadow: 0px 0px 20px 0px rgba(248, 91, 39, 0.7);
+  }
   .header__btn_ghost:hover {
-    background: var(--color-primary);
-    color: var(--color-white);
+    background-color: var(--color-primary);
   }
 }
 @media (hover: none) {
   .header__btn_ghost:active {
-    background: var(--color-primary);
-    color: var(--color-white);
+    background-color: var(--color-primary);
   }
 }
-/* на мобилке кнопки не помещаются — они есть в бургер-меню */
 @media (max-width: 768px) {
-  .header__btns {
+  .header__btn {
     display: none;
   }
 }
 
-/* при открытом меню шапка ложится на тёмный фон:
-   логотип-картинку перекрашиваем фильтром, нижний ряд прячем */
+/* бургер: оранжевый квадрат 42×42 */
+.header_hero .burger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: calc(5 * var(--width-multiplier));
+  flex-shrink: 0;
+  width: calc(42 * var(--width-multiplier));
+  height: calc(42 * var(--width-multiplier));
+  border-radius: calc(4 * var(--width-multiplier));
+  background: var(--color-primary);
+}
+.header_hero .burger__line {
+  width: calc(20 * var(--width-multiplier));
+  height: calc(2 * var(--width-multiplier));
+  border-radius: calc(4 * var(--width-multiplier));
+  background: var(--color-white);
+}
+@media (max-width: 768px) {
+  .header_hero .burger {
+    width: calc(35 * var(--width-multiplier));
+    height: calc(35 * var(--width-multiplier));
+  }
+  .header_hero .burger__line {
+    width: calc(17 * var(--width-multiplier));
+  }
+}
+
+/* при открытом меню шапка ложится на тёмный фон меню */
 .header.menu-active {
   background: transparent;
   -webkit-backdrop-filter: none;
   backdrop-filter: none;
 }
-.header.menu-active .header__logo img {
-  filter: brightness(0) invert(1);
-}
-
 
 /* ─── МЕНЮ ────────────────────────────────────────────────
    Отступы, сетка и линии — целиком боевые, из css/style.css.
@@ -2543,10 +2601,10 @@
   width: -moz-fit-content;
   width: fit-content;
 }
-/* как в шапке: высота 50, ширина по пропорции */
+/* логотип в футере вертикальный (знак над надписью), пропорция 768x417 */
 .footer__logo img {
-  width: auto;
-  height: calc(50 * var(--width-multiplier));
+  width: calc(256 * var(--width-multiplier));
+  height: auto;
   -o-object-fit: contain;
   object-fit: contain;
   -o-object-position: left center;
