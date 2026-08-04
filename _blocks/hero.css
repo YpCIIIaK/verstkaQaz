@@ -1,0 +1,185 @@
+.hero {
+  position: relative;
+  z-index: 0;
+  display: flex;
+  align-items: flex-start;
+  /* 156 — высота нового хедера, ещё 156 — отступ от него до контента */
+  padding: calc(312 * var(--width-multiplier)) 0
+    calc(100 * var(--width-multiplier));
+  min-height: calc(800 * var(--width-multiplier));
+  overflow: hidden;
+}
+@media (max-width: 768px) {
+  .hero {
+    min-height: calc(600 * var(--width-multiplier));
+    padding: calc(140 * var(--width-multiplier)) 0
+      calc(50 * var(--width-multiplier));
+  }
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: rgba(37, 35, 35, 0.6);
+}
+.hero__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+.hero__box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: calc(52 * var(--width-multiplier));
+  width: calc(900 * var(--width-multiplier));
+  max-width: 100%;
+}
+@media (max-width: 768px) {
+  .hero__box {
+    gap: calc(28 * var(--width-multiplier));
+    width: 100%;
+  }
+}
+.hero__heading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: calc(26 * var(--width-multiplier));
+}
+@media (max-width: 768px) {
+  .hero__heading {
+    gap: calc(16 * var(--width-multiplier));
+  }
+}
+.hero__line {
+  border-radius: calc(2 * var(--width-multiplier));
+  background: #f85b27;
+  width: calc(50 * var(--width-multiplier));
+  height: calc(6 * var(--width-multiplier));
+}
+@media (max-width: 768px) {
+  .hero__line {
+    width: calc(40 * var(--width-multiplier));
+    height: calc(5 * var(--width-multiplier));
+  }
+}
+.hero__title {
+  color: #ffffff;
+  font-size: calc(48 * var(--width-multiplier));
+  font-weight: 700;
+  line-height: calc(58 * var(--width-multiplier));
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+@media (max-width: 768px) {
+  .hero__title {
+    font-size: calc(30 * var(--width-multiplier));
+  }
+  .hero__title br {
+    display: none;
+  }
+}
+
+.hero__stats {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: calc(16 * var(--width-multiplier));
+  width: calc(680 * var(--width-multiplier));
+  max-width: 100%;
+}
+@media (max-width: 768px) {
+  .hero__stats {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+}
+.hero__statline {
+  flex-shrink: 0;
+  width: calc(1 * var(--width-multiplier));
+  height: calc(60 * var(--width-multiplier));
+  background: rgba(255, 255, 255, 0.6);
+  overflow: hidden;
+}
+@media (max-width: 768px) {
+  .hero__statline {
+    width: 100%;
+    height: calc(1 * var(--width-multiplier));
+  }
+}
+
+.hero-stat {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: calc(6 * var(--width-multiplier));
+}
+@media (max-width: 768px) {
+  .hero-stat {
+    flex-grow: 0;
+    width: 100%;
+  }
+}
+.hero-stat_offset {
+  padding-left: calc(24 * var(--width-multiplier));
+}
+@media (max-width: 768px) {
+  .hero-stat_offset {
+    padding-left: 0;
+  }
+}
+.hero-stat__num {
+  width: 100%;
+  color: #ffffff;
+  font-size: calc(28 * var(--width-multiplier));
+  font-weight: 700;
+  line-height: calc(34 * var(--width-multiplier));
+  letter-spacing: 0;
+}
+@media (max-width: 768px) {
+  .hero-stat__num {
+    font-size: calc(24 * var(--width-multiplier));
+    line-height: calc(30 * var(--width-multiplier));
+  }
+}
+.hero-stat__desc {
+  width: 100%;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: calc(13 * var(--width-multiplier));
+  font-weight: 400;
+  line-height: calc(18 * var(--width-multiplier));
+  letter-spacing: 0;
+}
+@media (max-width: 768px) {
+  .hero-stat__desc {
+    font-size: calc(12 * var(--width-multiplier));
+    line-height: calc(16 * var(--width-multiplier));
+  }
+}
+
+.hero__btn {
+  min-width: calc(321 * var(--width-multiplier));
+  height: calc(50 * var(--width-multiplier));
+  font-size: calc(18 * var(--width-multiplier));
+  font-weight: 600;
+  line-height: calc(22 * var(--width-multiplier));
+  letter-spacing: 0;
+}
+@media (max-width: 768px) {
+  .hero__btn {
+    min-width: 100%;
+  }
+}

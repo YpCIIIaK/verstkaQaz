@@ -1,0 +1,118 @@
+/* светлая полоса во всю ширину; 70 сверху и снизу
+   складываются с соседними блоками в 140 */
+.eco {
+  position: relative;
+  z-index: 0;
+  margin: calc(70 * var(--width-multiplier)) 0;
+  padding: calc(80 * var(--width-multiplier)) 0;
+  background: #f9f7f5;
+  overflow: hidden;
+}
+@media (max-width: 768px) {
+  .eco {
+    margin: calc(30 * var(--width-multiplier)) 0;
+    padding: calc(30 * var(--width-multiplier)) 0;
+  }
+}
+.eco__box {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: calc(40 * var(--width-multiplier));
+}
+.eco__left {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: calc(52 * var(--width-multiplier));
+  flex-shrink: 0;
+  width: calc(613 * var(--width-multiplier));
+}
+@media (max-width: 768px) {
+  .eco__left {
+    width: 100%;
+    gap: calc(24 * var(--width-multiplier));
+  }
+}
+.eco__heading {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: calc(16 * var(--width-multiplier));
+  width: 100%;
+}
+@media (max-width: 768px) {
+  .eco__heading {
+    gap: calc(10 * var(--width-multiplier));
+  }
+}
+.eco__title {
+  width: 100%;
+  color: #2a2826;
+  font-size: calc(30 * var(--width-multiplier));
+  font-weight: 700;
+  line-height: calc(36 * var(--width-multiplier));
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+@media (max-width: 768px) {
+  .eco__title {
+    font-size: calc(24 * var(--width-multiplier));
+    line-height: calc(29 * var(--width-multiplier));
+  }
+}
+.eco__desc {
+  width: 100%;
+  opacity: 0.8;
+  color: #2a2826;
+  font-size: calc(15 * var(--width-multiplier));
+  font-weight: 400;
+  line-height: calc(24 * var(--width-multiplier));
+  letter-spacing: 0;
+}
+@media (max-width: 768px) {
+  .eco__desc {
+    font-size: calc(14 * var(--width-multiplier));
+    line-height: calc(22 * var(--width-multiplier));
+  }
+}
+.eco__btn {
+  min-width: calc(321 * var(--width-multiplier));
+  height: calc(50 * var(--width-multiplier));
+  font-size: calc(16 * var(--width-multiplier));
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+@media (max-width: 768px) {
+  .eco__btn {
+    min-width: 100%;
+  }
+}
+
+/* фото уходит за правый край полосы — обрезается overflow у секции */
+.eco__img {
+  position: absolute;
+  left: calc(717 * var(--width-multiplier));
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: -1;
+  width: calc(725 * var(--width-multiplier));
+  height: calc(483 * var(--width-multiplier));
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+@media (max-width: 768px) {
+  .eco__img {
+    position: relative;
+    left: unset;
+    top: unset;
+    transform: none;
+    display: block;
+    width: 100%;
+    height: calc(240 * var(--width-multiplier));
+    margin-top: calc(24 * var(--width-multiplier));
+  }
+}

@@ -1,0 +1,101 @@
+<section class="samples">
+  <div class="container">
+    <div class="samples__box">
+      <div class="samples__left">
+        <div class="samples__heading">
+          <h2 class="samples__title">Заказать образцы</h2>
+          <p class="samples__desc">
+            Оставьте контактные данные, и мы доставим образцы клинкерной плитки
+            QAZCLINKER в ваш офис
+          </p>
+        </div>
+
+        <form class="samples-form samples-form-wr">
+          <div class="samples-form__row">
+            <label class="samples-field">
+              <span class="samples-field__label">ФИО</span>
+              <input
+                type="text"
+                name="name"
+                class="samples-field__input"
+                placeholder="Иван Иванов"
+              />
+            </label>
+          </div>
+
+          <div class="samples-form__row samples-form__row_two">
+            <label class="samples-field">
+              <span class="samples-field__label">Телефон</span>
+              <input
+                type="text"
+                name="phone"
+                class="samples-field__input tel-input"
+                placeholder="+7 (___) ___-__-__"
+                required
+              />
+            </label>
+            <label class="samples-field">
+              <span class="samples-field__label">Город</span>
+              <input
+                type="text"
+                name="city"
+                class="samples-field__input"
+                placeholder="Астана"
+              />
+            </label>
+          </div>
+
+          <div class="samples-form__row">
+            <label class="samples-field">
+              <span class="samples-field__label">Город</span>
+              <input
+                type="text"
+                name="city_2"
+                class="samples-field__input"
+                placeholder="Астана"
+              />
+            </label>
+          </div>
+
+          <div class="samples-form__row">
+            <label class="samples-field">
+              <span class="samples-field__label">Система крепления</span>
+              <select name="mount" class="samples-field__input samples-field__select">
+                <option value="" disabled selected>
+                  Клеевая / Паз-паз / Паз-гребень
+                </option>
+                <option value="Клеевая">Клеевая</option>
+                <option value="Паз-паз">Паз-паз</option>
+                <option value="Паз-гребень">Паз-гребень</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="samples-form__row">
+            <label class="samples-field">
+              <span class="samples-field__label">Дополнительная информация</span>
+              <textarea
+                name="comment"
+                class="samples-field__input samples-field__textarea"
+                placeholder="Комментарий к заявке..."
+              ></textarea>
+            </label>
+          </div>
+
+          <input type="submit" class="button samples-form__submit" value="Отправить" />
+
+          <div class="form-agree samples-form__agree">
+            <input type="checkbox" id="samples-agree" class="samples-form__checkbox" />
+            <label for="samples-agree" class="samples-form__agreedesc">
+              Нажимая кнопку вы соглашаетесь с политикой конфиденциальности
+            </label>
+          </div>
+        </form>
+      </div>
+
+      <div class="samples__right">
+        <img src="csddfs.png" class="samples__img" alt="" />
+      </div>
+    </div>
+  </div>
+</section>

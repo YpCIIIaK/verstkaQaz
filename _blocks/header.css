@@ -1,0 +1,282 @@
+/* Правки поверх боевых .header и .menu из css/style.css */
+
+/* ─── ШАПКА ─────────────────────────────────────────────── */
+
+.header_hero {
+  background: rgba(251, 250, 250, 0.5);
+  -webkit-backdrop-filter: blur(calc(4 * var(--width-multiplier)));
+  backdrop-filter: blur(calc(4 * var(--width-multiplier)));
+}
+.header_hero.scrolled {
+  background: rgba(251, 250, 250, 0.5);
+}
+/* в новом хедере текст тёмный, а не белый как было */
+.header_hero .header__call,
+.header_hero .langs__link,
+.header_hero .langs__active {
+  color: #252323;
+}
+/* стрелка тянет цвет из .langs__active, чтобы краснеть на ховере вместе с ним */
+.langs__arrow {
+  flex-shrink: 0;
+  width: calc(16 * var(--width-multiplier));
+  height: calc(8 * var(--width-multiplier));
+  transition: rotate 0.3s ease;
+}
+.langs__arrow path {
+  fill: currentColor;
+}
+.langs:hover .langs__arrow {
+  rotate: 180deg;
+}
+
+.header__box {
+  display: flex;
+  flex-direction: column;
+  gap: calc(24 * var(--width-multiplier));
+  padding: calc(24 * var(--width-multiplier)) 0;
+}
+@media (max-width: 768px) {
+  .header__box {
+    gap: calc(12 * var(--width-multiplier));
+    padding: calc(12 * var(--width-multiplier)) 0;
+  }
+}
+.header__box-top {
+  height: calc(42 * var(--width-multiplier));
+  padding: 0;
+  border-bottom: none;
+}
+@media (max-width: 768px) {
+  .header__box-top {
+    height: calc(35 * var(--width-multiplier));
+  }
+}
+.header__logo img {
+  width: auto;
+  height: calc(50 * var(--width-multiplier));
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+@media (max-width: 768px) {
+  .header__logo img {
+    height: calc(32 * var(--width-multiplier));
+  }
+}
+.header-search {
+  width: calc(470 * var(--width-multiplier));
+  height: calc(32 * var(--width-multiplier));
+  padding: calc(4 * var(--width-multiplier)) calc(10 * var(--width-multiplier));
+}
+.header-search__input::-moz-placeholder {
+  color: rgba(37, 35, 35, 0.5);
+}
+.header-search__input::placeholder {
+  color: rgba(37, 35, 35, 0.5);
+}
+.header__info-col {
+  gap: calc(32 * var(--width-multiplier));
+}
+@media (max-width: 768px) {
+  .header__info-col {
+    gap: calc(10 * var(--width-multiplier));
+  }
+}
+
+/* при открытом меню шапка ложится на тёмный фон:
+   логотип-картинку перекрашиваем фильтром, нижний ряд прячем */
+.header.menu-active {
+  background: transparent;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+.header.menu-active .header__logo img {
+  filter: brightness(0) invert(1);
+}
+.header.menu-active .header__line,
+.header.menu-active .header__nav {
+  display: none;
+}
+
+.header__line {
+  width: 100%;
+  height: calc(1 * var(--width-multiplier));
+  background: rgba(37, 35, 35, 0.1);
+}
+.header__nav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: calc(32 * var(--width-multiplier));
+}
+@media (max-width: 768px) {
+  .header__nav {
+    display: none;
+  }
+}
+.header__navlink {
+  color: #252323;
+  font-size: calc(14 * var(--width-multiplier));
+  font-weight: 400;
+  line-height: calc(17 * var(--width-multiplier));
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+/* ─── МЕНЮ ──────────────────────────────────────────────── */
+
+.menu {
+  background: #252323;
+  padding: 0;
+  /* контент выше экрана — прокручиваем всё меню целиком */
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.menu__wrapper {
+  display: flex;
+  flex-direction: column;
+  /* боевые height / gap / space-between гасим — отступы задаём сами */
+  justify-content: flex-start;
+  gap: 0;
+  height: auto;
+  min-height: 100vh;
+  /* при открытом меню от шапки виден только верхний ряд: 24 + 42 = 66,
+     дальше 127 до первой линии */
+  padding: calc(193 * var(--width-multiplier)) 0
+    calc(40 * var(--width-multiplier));
+}
+@media (max-width: 768px) {
+  .menu__wrapper {
+    padding: calc(90 * var(--width-multiplier)) 0
+      calc(20 * var(--width-multiplier));
+  }
+}
+.menu__main {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  flex-grow: 1;
+  /* боевой .menu__main скроллится сам и обрезает колонки — скроллит теперь .menu */
+  height: auto;
+  overflow: visible;
+  border-top: calc(1 * var(--width-multiplier)) solid #ffffff;
+  border-bottom: calc(1 * var(--width-multiplier)) solid #ffffff;
+}
+@media (max-width: 768px) {
+  .menu__main {
+    grid-template-columns: 100%;
+  }
+}
+.menu__col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* 34 — от верхней линии до заголовка, 34 — от блока контактов до нижней линии */
+  padding: calc(34 * var(--width-multiplier)) 0;
+}
+.menu__col:first-child {
+  border-right: calc(1 * var(--width-multiplier)) solid #ffffff;
+}
+/* боевой шаблон рисует линию ещё и слева у второй колонки — выйдет двойная */
+.menu__col:last-child {
+  border-left: none;
+}
+@media (max-width: 768px) {
+  .menu__col {
+    padding: calc(15 * var(--width-multiplier)) 0;
+  }
+  .menu__col:first-child {
+    border-right: none;
+    border-bottom: calc(1 * var(--width-multiplier)) solid #ffffff;
+  }
+}
+.menu__title {
+  display: block;
+  width: 100%;
+  /* у боевого .menu__title padding сверху и снизу — верхний гасим */
+  padding-top: 0;
+  padding-bottom: calc(32 * var(--width-multiplier));
+  border-bottom: calc(1 * var(--width-multiplier)) solid #ffffff;
+  color: #ffffff;
+  /* Steelfish на сайте не подключён — до появления файлов падаем на основной шрифт */
+  font-family: "Steelfish", "TT Firs Neue", sans-serif;
+  font-size: calc(54 * var(--width-multiplier));
+  font-weight: 700;
+  line-height: calc(65 * var(--width-multiplier));
+  letter-spacing: 0;
+  text-transform: uppercase;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .menu__title {
+    font-size: calc(32 * var(--width-multiplier));
+    line-height: calc(38 * var(--width-multiplier));
+    padding-bottom: calc(15 * var(--width-multiplier));
+  }
+}
+/* линия под заголовком должна идти во всю ширину колонки */
+.menu__col:first-child .menu__title {
+  margin-right: calc(-1 * var(--width-multiplier));
+}
+.menu__box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* 30 — от линии под заголовком до ссылок, 54 — от ссылок до контактов */
+  gap: calc(54 * var(--width-multiplier));
+  padding-top: calc(30 * var(--width-multiplier));
+}
+@media (max-width: 768px) {
+  .menu__box {
+    gap: calc(20 * var(--width-multiplier));
+    padding-top: calc(15 * var(--width-multiplier));
+  }
+}
+.menu__nav,
+.menu__infobox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(22 * var(--width-multiplier));
+}
+@media (max-width: 768px) {
+  .menu__nav,
+  .menu__infobox {
+    gap: calc(12 * var(--width-multiplier));
+  }
+}
+.menu__link {
+  color: #ffffff;
+  font-size: calc(18 * var(--width-multiplier));
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .menu__link {
+    font-size: calc(15 * var(--width-multiplier));
+  }
+}
+/* состояние «текущий раздел» — класс вешает header.js */
+.header__navlink_active,
+.menu__link_active {
+  color: #f85b27;
+  font-weight: 500;
+  pointer-events: none;
+}
+.menu__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: calc(60 * var(--width-multiplier));
+}
+@media (max-width: 768px) {
+  .menu__bottom {
+    padding-top: calc(20 * var(--width-multiplier));
+  }
+}
+.menu__socbox {
+  display: flex;
+  align-items: center;
+  gap: calc(14 * var(--width-multiplier));
+}

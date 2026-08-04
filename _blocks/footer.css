@@ -1,0 +1,43 @@
+/* Правки поверх боевого .footer из css/style.css */
+
+/* 70 сверху + 70 снизу у блока новостей = 140 до футера */
+.footer {
+  margin-top: calc(70 * var(--width-multiplier));
+}
+@media (max-width: 768px) {
+  .footer {
+    margin-top: calc(30 * var(--width-multiplier));
+  }
+}
+.footer__logo img {
+  width: calc(256 * var(--width-multiplier));
+  height: calc(139 * var(--width-multiplier));
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+@media (max-width: 768px) {
+  .footer__logo img {
+    width: calc(180 * var(--width-multiplier));
+    height: calc(98 * var(--width-multiplier));
+  }
+}
+.footer__socdesc,
+.footer__socgray,
+.footer__navlink {
+  line-height: calc(19 * var(--width-multiplier));
+}
+.footer__copyright,
+.footer__polit {
+  font-size: calc(14 * var(--width-multiplier));
+  line-height: calc(17 * var(--width-multiplier));
+}
+
+/* заголовки колонок — Steelfish Bold 28, как в макете
+   (боевой .footer__navtitle — TT Firs Neue 500) */
+.footer__navtitle {
+  font-family: "Steelfish", "TT Firs Neue", sans-serif;
+  font-size: calc(28 * var(--width-multiplier));
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0;
+}
