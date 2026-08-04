@@ -154,16 +154,70 @@
   white-space: nowrap;
 }
 
-/* «Каталог 2027» — прозрачная с обводкой. Обводку рисуем svg-фоном:
-   обычный border clip-path срезал бы по углам, а заливка вторым слоем
-   не даёт увидеть видео под шапкой */
+/* «Каталог 2027» — прозрачная с обводкой.
+   Рамку собираем из фоновых слоёв: четыре грани и четыре диагонали
+   на срезах. SVG тут не годится — при растяжении под ширину кнопки
+   его диагонали расходились с фаской clip-path и рамка двоилась.
+   Обычный border не подходит: clip-path срезал бы его по углам. */
 .header__btn_ghost {
+  --line: var(--color-white-60);
+
   padding-inline: calc(20 * var(--width-multiplier));
-  background: transparent;
-  /* clip-path не снимаем: он и обрезает заливку на ховере по фаске.
-     Контур внутри него, отступ 1 — чтобы обводку не срезало по диагоналям */
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 142 42' preserveAspectRatio='none'%3E%3Cpath d='M11 1H131L141 11V31L131 41H11L1 31V11Z' fill='none' stroke='rgba(255,255,255,0.6)' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
-  background-size: 100% 100%;
+  background-color: transparent;
+  background-image:
+    /* грани: верх, низ, лево, право */
+    linear-gradient(var(--line), var(--line)),
+    linear-gradient(var(--line), var(--line)),
+    linear-gradient(var(--line), var(--line)),
+    linear-gradient(var(--line), var(--line)),
+    /* срезы: левый верхний и правый нижний */
+    linear-gradient(
+      to bottom right,
+      transparent calc(50% - 0.5px),
+      var(--line) calc(50% - 0.5px),
+      var(--line) calc(50% + 0.5px),
+      transparent calc(50% + 0.5px)
+    ),
+    linear-gradient(
+      to bottom right,
+      transparent calc(50% - 0.5px),
+      var(--line) calc(50% - 0.5px),
+      var(--line) calc(50% + 0.5px),
+      transparent calc(50% + 0.5px)
+    ),
+    /* срезы: правый верхний и левый нижний */
+    linear-gradient(
+      to top right,
+      transparent calc(50% - 0.5px),
+      var(--line) calc(50% - 0.5px),
+      var(--line) calc(50% + 0.5px),
+      transparent calc(50% + 0.5px)
+    ),
+    linear-gradient(
+      to top right,
+      transparent calc(50% - 0.5px),
+      var(--line) calc(50% - 0.5px),
+      var(--line) calc(50% + 0.5px),
+      transparent calc(50% + 0.5px)
+    );
+  background-size:
+    calc(100% - 2 * var(--cut)) 1px,
+    calc(100% - 2 * var(--cut)) 1px,
+    1px calc(100% - 2 * var(--cut)),
+    1px calc(100% - 2 * var(--cut)),
+    var(--cut) var(--cut),
+    var(--cut) var(--cut),
+    var(--cut) var(--cut),
+    var(--cut) var(--cut);
+  background-position:
+    center top,
+    center bottom,
+    left center,
+    right center,
+    left top,
+    right bottom,
+    right top,
+    left bottom;
   background-repeat: no-repeat;
 }
 @media (hover: hover) and (pointer: fine) {
@@ -1128,11 +1182,10 @@
 .samples-form__agree {
   width: 100%;
 }
-/* чекбокс согласия — боевой .form-agree; на проде он рассчитан
-   на тёмный фон, у нас плашка светлая, поэтому только перекрашиваем */
+/* чекбокс согласия — боевой .form-agree со страницы «Нужна помощь»:
+   размер 24, скругление 4, галочка на ::before. Меняем только цвет:
+   на проде он белый под тёмный фон, у нас плашка светлая */
 .samples-form__agree .form-agree__label {
-  width: calc(17 * var(--width-multiplier));
-  height: calc(17 * var(--width-multiplier));
   border-color: var(--color-dark-60);
   cursor: pointer;
 }
