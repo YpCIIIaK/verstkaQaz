@@ -63,10 +63,10 @@
   rotate: 180deg;
 }
 
+/* высота шапки: 24 + 42 + 24 = 90 */
 .header__box {
   display: flex;
   flex-direction: column;
-  gap: calc(24 * var(--width-multiplier));
   padding: calc(24 * var(--width-multiplier)) 0;
 }
 @media (max-width: 768px) {
@@ -116,6 +116,44 @@
   }
 }
 
+/* кнопки в шапке: основная оранжевая и прозрачная с обводкой */
+.header__btns {
+  display: flex;
+  align-items: center;
+  gap: calc(12 * var(--width-multiplier));
+}
+.header__btn {
+  height: calc(42 * var(--width-multiplier));
+  padding: 0 calc(20 * var(--width-multiplier));
+  font-size: calc(14 * var(--width-multiplier));
+  font-weight: 600;
+  line-height: calc(17 * var(--width-multiplier));
+  white-space: nowrap;
+}
+.header__btn_ghost {
+  background: transparent;
+  border: calc(1 * var(--width-multiplier)) solid var(--color-primary);
+  color: var(--color-primary);
+}
+@media (hover: hover) and (pointer: fine) {
+  .header__btn_ghost:hover {
+    background: var(--color-primary);
+    color: var(--color-white);
+  }
+}
+@media (hover: none) {
+  .header__btn_ghost:active {
+    background: var(--color-primary);
+    color: var(--color-white);
+  }
+}
+/* на мобилке кнопки не помещаются — они есть в бургер-меню */
+@media (max-width: 768px) {
+  .header__btns {
+    display: none;
+  }
+}
+
 /* при открытом меню шапка ложится на тёмный фон:
    логотип-картинку перекрашиваем фильтром, нижний ряд прячем */
 .header.menu-active {
@@ -126,52 +164,7 @@
 .header.menu-active .header__logo img {
   filter: brightness(0) invert(1);
 }
-.header.menu-active .header__line,
-.header.menu-active .header__nav {
-  display: none;
-}
 
-.header__line {
-  width: 100%;
-  height: calc(1 * var(--width-multiplier));
-  background: var(--color-dark-10);
-}
-.header__nav {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: calc(32 * var(--width-multiplier));
-}
-/* на мобилке шесть пунктов в строку не помещаются — уводим в
-   горизонтальную прокрутку. Отрицательные поля гасят паддинг
-   контейнера, чтобы строка скроллилась от края до края экрана,
-   а первый и последний пункт при этом не липли к границам */
-@media (max-width: 768px) {
-  .header__nav {
-    gap: calc(20 * var(--width-multiplier));
-    margin-inline: calc(-10 * var(--width-multiplier));
-    padding-inline: calc(10 * var(--width-multiplier));
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior-x: contain;
-    scrollbar-width: none;
-  }
-  .header__nav::-webkit-scrollbar {
-    display: none;
-  }
-  .header__navlink {
-    font-size: calc(13 * var(--width-multiplier));
-    line-height: calc(16 * var(--width-multiplier));
-  }
-}
-.header__navlink {
-  color: var(--color-dark);
-  font-size: calc(14 * var(--width-multiplier));
-  font-weight: 400;
-  line-height: calc(17 * var(--width-multiplier));
-  letter-spacing: 0;
-  white-space: nowrap;
-}
 
 /* ─── МЕНЮ ────────────────────────────────────────────────
    Отступы, сетка и линии — целиком боевые, из css/style.css.
@@ -192,7 +185,6 @@
   }
 }
 /* состояние «текущий раздел» — класс вешает js/main.js */
-.header__navlink_active,
 .menu__link_active {
   color: var(--color-primary);
   font-weight: 500;
