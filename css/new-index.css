@@ -2565,6 +2565,8 @@
 .footer__logo {
   width: -moz-fit-content;
   width: fit-content;
+  align-self: start;
+  align-items: flex-start;
 }
 
 .footer__logo img {
