@@ -4,11 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>QAZCLINKER — новая главная</title>
+  <!-- ── боевые файлы сайта: копия с прода, НЕ править ── -->
+  <link rel="stylesheet" href="css/existing/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="css/existing/normalize.css" />
+  <link rel="stylesheet" href="css/existing/style.css" />
+  <!-- ── новое: только для этой страницы ── -->
   <link rel="stylesheet" href="css/fonts.css" />
-  <link rel="stylesheet" href="https://qazclinker.kz/local/templates/qazclincker/css/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="https://qazclinker.kz/local/templates/qazclincker/css/normalize.css" />
-  <link rel="stylesheet" href="https://qazclinker.kz/local/templates/qazclincker/css/style.css" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/new-index.css" />
   <style>
     /* в боевом шаблоне body раскрывается скриптом, для превью снимаем */
     body { overflow: visible !important; max-height: none !important; }
@@ -162,7 +164,7 @@
 
 <section class="hero">
   <video class="hero__bg" loop autoplay muted playsinline preload>
-    <source src="https://qazclinker.kz/local/templates/qazclincker/src/videos/0116.mp4" type="video/mp4" />
+    <source src="img/video/hero.mp4" type="video/mp4" />
   </video>
 
   <div class="container">
@@ -869,7 +871,7 @@
 </main>
 
 <footer class="footer">
-  <img src="https://qazclinker.kz/local/templates/qazclincker/src/icons/footer-bg.svg" class="footer__bg" />
+  <img src="img/footer-bg.svg" class="footer__bg" />
   <div class="container">
     <div class="footer__box">
       <a href="/" class="footer__logo">
@@ -930,9 +932,11 @@
     </div>
   </div>
 </footer>
-  <script src="https://qazclinker.kz/local/templates/qazclincker/js/imask.js"></script>
-  <script src="https://qazclinker.kz/local/templates/qazclincker/js/swiper-bundle.min.js"></script>
-  <script src="https://qazclinker.kz/local/templates/qazclincker/js/main.js"></script>
-  <script src="js/main.js"></script>
+  <!-- ── боевые скрипты сайта: копия с прода, НЕ править ── -->
+  <script src="js/existing/imask.js"></script>
+  <script src="js/existing/swiper-bundle.min.js"></script>
+  <script src="js/existing/main.js"></script>
+  <!-- ── новое: только для этой страницы ── -->
+  <script src="js/new-index.js"></script>
 </body>
 </html>
