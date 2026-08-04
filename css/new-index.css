@@ -2593,3 +2593,23 @@
   line-height: 1;
   letter-spacing: 0;
 }
+/* ═══ ТАЧ-УСТРОЙСТВА ══════════════════════════════════════
+   На проде каждый hover продублирован состоянием :active в
+   @media (hover: none) — на телефоне ховера нет, и без этого
+   нажатие никак не отзывается. Повторяем для своих элементов. */
+
+@media (hover: none) {
+  .selection__right .swiper-btn-arrow:active {
+    background: var(--color-white);
+    color: var(--color-primary);
+  }
+  .order__btn:active {
+    box-shadow: 0px 0px 20px 0px var(--color-white-70);
+  }
+  .news__link:active {
+    color: var(--color-primary);
+  }
+  .news .hero-news-card:active .hero-news-card__img {
+    scale: 1.1;
+  }
+}
