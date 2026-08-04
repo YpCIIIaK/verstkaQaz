@@ -142,9 +142,26 @@
   align-items: center;
   gap: calc(32 * var(--width-multiplier));
 }
+/* на мобилке шесть пунктов в строку не помещаются — уводим в
+   горизонтальную прокрутку. Отрицательные поля гасят паддинг
+   контейнера, чтобы строка скроллилась от края до края экрана,
+   а первый и последний пункт при этом не липли к границам */
 @media (max-width: 768px) {
   .header__nav {
+    gap: calc(20 * var(--width-multiplier));
+    margin-inline: calc(-10 * var(--width-multiplier));
+    padding-inline: calc(10 * var(--width-multiplier));
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+  }
+  .header__nav::-webkit-scrollbar {
     display: none;
+  }
+  .header__navlink {
+    font-size: calc(13 * var(--width-multiplier));
+    line-height: calc(16 * var(--width-multiplier));
   }
 }
 .header__navlink {
