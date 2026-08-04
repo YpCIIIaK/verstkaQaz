@@ -1,24 +1,15 @@
-// Скрипты новой главной QAZCLINKER
-
-// ═══ HEADER ════════════════════════════════════════
-
-// Подсветка текущего раздела в меню
 (function () {
   const path = location.pathname.replace(/\/+$/, "") || "/";
 
   document.querySelectorAll(".menu__link[href]").forEach((link) => {
     const href = link.getAttribute("href").replace(/\/+$/, "");
-    // главная активной не бывает: ссылки на неё в меню нет
     if (!href || href === "/" || href.startsWith("#") || href.includes(":")) return;
 
-    // раздел считается текущим и для вложенных страниц: /aktsii/kakaya-to
     if (path === href || path.startsWith(href + "/")) {
       link.classList.add("menu__link_active");
     }
   });
 })();
-
-// ═══ SELECTION ════════════════════════════════════════
 
 /* Переключалка картинок в блоке «Клинкерная плитка...».
    Без Swiper: без драга и без горизонтального проезда, только фейд. */
@@ -45,8 +36,6 @@ document.querySelectorAll(".selection-slider").forEach((slider) => {
 
   show(0);
 });
-
-// ═══ SAMPLES ════════════════════════════════════════
 
 /* Дописать в js/main.js рядом с остальными обработчиками форм.
    Логика один в один как у call-form-wr / coop-form / prod-form-wr.
@@ -86,9 +75,6 @@ if (samplesForm) {
   });
 }
 
-// ═══ NEWS ════════════════════════════════════════
-
-// Конфиг боевого свайпера новостей (js/swipers.js) — без изменений
 const swiperHeroNews = new Swiper(".swiper-hero-news", {
   speed: 1000,
 

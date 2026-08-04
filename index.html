@@ -4,23 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>QAZCLINKER — новая главная</title>
-  <!-- существующие файлы сайта: копия с прода -->
   <link rel="stylesheet" href="css/existing/swiper-bundle.min.css" />
   <link rel="stylesheet" href="css/existing/normalize.css" />
   <link rel="stylesheet" href="css/existing/style.css" />
-  <!-- новое -->
   <link rel="stylesheet" href="css/fonts.css" />
   <link rel="stylesheet" href="css/new-index.css" />
   <style>
-    /* в боевом шаблоне body раскрывается скриптом, для превью снимаем */
     body { overflow: visible !important; max-height: none !important; }
   </style>
 </head>
 <body>
-<!-- ────────────────────────────────────────────────────────────────
-     EXISTING — шапка и меню
-     боевые .header и .menu, изменены содержимое и оформление
-     ──────────────────────────────────────────────────────────────── -->
 <header class="header header_hero">
   <div class="container">
     <div class="header__box">
@@ -47,7 +40,7 @@
             </div>
           </div>
           <a href="tel:+7 (700) 700-55-55" class="header__call">+7 (700) 700-55-55</a>
-          <a href="#" class="button header__btn header__btn_ghost"><!-- НЕТ PDF -->Каталог 2027</a>
+          <a href="#" class="button header__btn header__btn_ghost">Каталог 2027</a>
           <a href="#" data-modal-target="modal-1" class="button header__btn">Рассчитать стоимость</a>
           <div class="burger">
             <span class="burger__line"></span>
@@ -56,7 +49,6 @@
           </div>
         </div>
       </div>
-
 
       <div class="swiper-pagination-super n"></div>
     </div>
@@ -71,7 +63,7 @@
             <div class="menu__box">
               <div class="menu__nav">
                 <a href="/catalog/produktsiya_qazclinker/" class="menu__link link">Продукция</a>
-                <a href="#" class="menu__link link">Застройщикам</a><!-- НЕТ СТРАНИЦЫ -->
+                <a href="#" class="menu__link link">Застройщикам</a>
                 <a href="/produktsiya/" class="menu__link link">Производство</a>
                 <a href="/laboratoriya/" class="menu__link link">Лаборатория</a>
                 <a href="/sotrudnichestvo/" class="menu__link link">Сотрудничество</a>
@@ -97,7 +89,7 @@
           <div class="menu__col">
             <a href="/o-torgovom-dome" class="menu__title">Торговый дом</a>
             <div class="menu__box">
-              <!-- menu__link_active проставляет header.js по текущему разделу -->
+              
               <div class="menu__nav">
                 <a href="/catalog/" class="menu__link link">Каталог</a>
                 <a href="/aktsii/" class="menu__link link">Акции</a>
@@ -158,9 +150,6 @@
 
 <main>
 
-<!-- ────────────────────────────────────────────────────────────────
-     NEW — первый экран
-     ──────────────────────────────────────────────────────────────── -->
 <section class="hero">
   <video class="hero__bg" loop autoplay muted playsinline preload>
     <source src="img/existing/video/hero.mp4" type="video/mp4" />
@@ -199,15 +188,11 @@
         </div>
       </div>
 
-      <a href="#" class="button hero__btn"><!-- НЕТ СТРАНИЦЫ --><!-- нужен PDF -->Скачать каталог</a>
+      <a href="#" class="button hero__btn">Скачать каталог</a>
     </div>
   </div>
 </section>
 
-<!-- ────────────────────────────────────────────────────────────────
-     NEW — клинкерная плитка для экстерьеров
-     слайдер на своём js, не Swiper
-     ──────────────────────────────────────────────────────────────── -->
 <section class="selection">
   <div class="container">
     <div class="selection__box">
@@ -297,9 +282,6 @@
   </div>
 </section>
 
-<!-- ────────────────────────────────────────────────────────────────
-     NEW — технологии и оборудование
-     ──────────────────────────────────────────────────────────────── -->
 <section class="tech">
   <div class="container">
     <div class="tech__heading">
@@ -370,10 +352,6 @@
   </div>
 </section>
 
-<!-- ────────────────────────────────────────────────────────────────
-     NEW — заказать образцы
-     чекбокс согласия — боевой компонент .form-agree
-     ──────────────────────────────────────────────────────────────── -->
 <section class="samples">
   <div class="container">
     <div class="samples__box">
@@ -478,9 +456,6 @@
   </div>
 </section>
 
-<!-- ────────────────────────────────────────────────────────────────
-     NEW — преимущества
-     ──────────────────────────────────────────────────────────────── -->
 <section class="advantages">
   <div class="container">
     <h2 class="advantages__title">Преимущества</h2>
@@ -514,9 +489,6 @@
   </div>
 </section>
 
-<!-- ────────────────────────────────────────────────────────────────
-     NEW — качество, подтверждённое испытаниями
-     ──────────────────────────────────────────────────────────────── -->
 <section class="quality">
   <div class="container">
     <div class="quality__panel">
@@ -573,9 +545,6 @@
   </div>
 </section>
 
-<!-- ────────────────────────────────────────────────────────────────
-     NEW — каталог
-     ──────────────────────────────────────────────────────────────── -->
 <section class="catalog">
   <div class="container">
     <div class="catalog__box">
@@ -588,7 +557,7 @@
             производства.
           </p>
         </div>
-        <a href="#" class="button catalog__btn"><!-- НЕТ СТРАНИЦЫ --><!-- нужен PDF -->Скачать каталог</a>
+        <a href="#" class="button catalog__btn">Скачать каталог</a>
       </div>
 
       <div class="catalog-card">
@@ -622,9 +591,6 @@
   </div>
 </section>
 
-<!-- ────────────────────────────────────────────────────────────────
-     NEW — почему выбирают нас
-     ──────────────────────────────────────────────────────────────── -->
 <section class="why">
   <div class="container">
     <div class="why__heading">
@@ -668,9 +634,6 @@
   </div>
 </section>
 
-<!-- ────────────────────────────────────────────────────────────────
-     NEW — заказать образцы плитки
-     ──────────────────────────────────────────────────────────────── -->
 <section class="order">
   <div class="container">
     <div class="order__box">
@@ -697,9 +660,6 @@
   <div class="order__watermark">QAZCLINKER</div>
 </section>
 
-<!-- ────────────────────────────────────────────────────────────────
-     NEW — дизайн-проект
-     ──────────────────────────────────────────────────────────────── -->
 <section class="design">
   <div class="container">
     <div class="design__box">
@@ -761,9 +721,6 @@
   </div>
 </section>
 
-<!-- ────────────────────────────────────────────────────────────────
-     NEW — экология
-     ──────────────────────────────────────────────────────────────── -->
 <section class="eco">
   <div class="container">
     <div class="eco__box">
@@ -786,10 +743,6 @@
   <img src="img/new/eco.png" class="eco__img" alt="" />
 </section>
 
-<!-- ────────────────────────────────────────────────────────────────
-     EXISTING — новости
-     боевая карусель .swiper-hero-news целиком, свой только заголовок
-     ──────────────────────────────────────────────────────────────── -->
 <section class="news hero-news">
   <div class="container">
     <div class="news__heading">
@@ -907,10 +860,6 @@
 
 </main>
 
-<!-- ────────────────────────────────────────────────────────────────
-     EXISTING — футер
-     боевой .footer, изменены логотип, ссылки и заголовки колонок
-     ──────────────────────────────────────────────────────────────── -->
 <footer class="footer">
   <img src="img/existing/footer-bg.svg" class="footer__bg" />
   <div class="container">
@@ -946,10 +895,10 @@
         <h2 class="footer__navtitle">Завод</h2>
         <div class="footer__nav">
           <a href="/o-zavode/" class="footer__navlink link">О заводе</a>
-          <a href="#" class="footer__navlink link">История</a><!-- НЕТ СТРАНИЦЫ -->
-          <a href="#" class="footer__navlink link">Руководство</a><!-- НЕТ СТРАНИЦЫ -->
-          <a href="#" class="footer__navlink link">Вакансии</a><!-- НЕТ СТРАНИЦЫ -->
-          <a href="#" class="footer__navlink link">Контакты</a><!-- НЕТ СТРАНИЦЫ -->
+          <a href="#" class="footer__navlink link">История</a>
+          <a href="#" class="footer__navlink link">Руководство</a>
+          <a href="#" class="footer__navlink link">Вакансии</a>
+          <a href="#" class="footer__navlink link">Контакты</a>
         </div>
       </div>
 
@@ -958,9 +907,9 @@
         <div class="footer__nav">
           <a href="/o-torgovom-dome/" class="footer__navlink link">О торговом доме</a>
           <a href="/catalog/" class="footer__navlink link">Категории</a>
-          <a href="#" class="footer__navlink link">Дополнительные услуги</a><!-- НЕТ СТРАНИЦЫ -->
+          <a href="#" class="footer__navlink link">Дополнительные услуги</a>
           <a href="/aktsii/" class="footer__navlink link">Акции</a>
-          <a href="#" class="footer__navlink link">Производители</a><!-- НЕТ СТРАНИЦЫ -->
+          <a href="#" class="footer__navlink link">Производители</a>
         </div>
       </div>
     </div>
@@ -974,11 +923,7 @@
   </div>
 </footer>
 
-<!-- ────────────────────────────────────────────────────────────────
-     EXISTING — модальное окно
-     боевая разметка modal-1 без изменений
-     ──────────────────────────────────────────────────────────────── -->
-  <div class="modal call-form" data-modal="modal-1">
+<div class="modal call-form" data-modal="modal-1">
     <div class="modal-inner">
       <div class="modal-inner__box">
         <div class="modal__head">
@@ -1002,12 +947,9 @@
       </div>
     </div>
   </div>
-
-  <!-- существующие скрипты сайта: копия с прода -->
   <script src="js/existing/imask.js"></script>
   <script src="js/existing/swiper-bundle.min.js"></script>
   <script src="js/existing/main.js"></script>
-  <!-- новое -->
   <script src="js/new-index.js"></script>
 </body>
 </html>

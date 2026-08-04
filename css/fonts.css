@@ -1,9 +1,3 @@
-/* Только для локального превью.
-   На проде шрифты уже подключены в src/fonts/TTFirsNeue/stylesheet.css —
-   этот файл в шаблон НЕ переносим.
-   Steelfish — исключение: его на проде нет, папку fonts/Steelfish нужно
-   положить в src/fonts/ и подключить её stylesheet.css. */
-
 @import url("../fonts/new/Steelfish/stylesheet.css");
 
 @font-face {

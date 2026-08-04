@@ -1,6 +1,3 @@
-/* Steelfish — для .menu__title и .history-year__num.
-   На сервер класть в src/fonts/Steelfish/ рядом с TTFirsNeue. */
-
 @font-face {
   font-family: "Steelfish";
   src: url("SteelfishRegular.woff2") format("woff2"),

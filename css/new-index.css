@@ -1,26 +1,20 @@
-/* Стили новой главной QAZCLINKER.
-   Дополняют боевой css/style.css — подключать ПОСЛЕ него. */
-
-/* Палитра. Боевые --color-primary, --color-dark, --color-white,
-   --color-dark-muted и --width-multiplier объявлены в style.css,
-   здесь только то, чего в нём не было. */
 :root {
-  /* фоновые плашки блоков */
+  
   --color-cream: #f9f7f5;
   --color-sand: #f5f3f0;
   --color-dark-soft: #2a2826;
-  /* поля ввода */
+  
   --color-border: #d1d5db;
   --color-placeholder: #9ca3af;
-  /* полупрозрачная шапка поверх видео */
+  
   --color-header-bg: rgba(251, 250, 250, 0.5);
-  /* тёмный с прозрачностью: подписи, разделители, рамки */
+  
   --color-dark-70: rgba(37, 35, 35, 0.7);
   --color-dark-60: rgba(37, 35, 35, 0.6);
   --color-dark-30: rgba(37, 35, 35, 0.3);
   --color-dark-20: rgba(37, 35, 35, 0.2);
   --color-dark-10: rgba(37, 35, 35, 0.1);
-  /* белый с прозрачностью: текст на фото, водяной знак */
+  
   --color-white-90: rgba(255, 255, 255, 0.9);
   --color-white-70: rgba(255, 255, 255, 0.7);
   --color-white-60: rgba(255, 255, 255, 0.6);
@@ -28,14 +22,6 @@
   --color-white-0: rgba(255, 255, 255, 0);
 }
 
-
-/* ═══ HEADER ══════════════════════════════════════════════════ */
-
-/* Правки поверх боевых .header и .menu из css/style.css */
-
-/* ─── ШАПКА ─────────────────────────────────────────────── */
-
-/* тёмная полупрозрачная поверх видео, высота 90 = 24 + 42 + 24 */
 .header_hero,
 .header_hero.scrolled {
   background: rgba(37, 35, 35, 0.6);
@@ -65,7 +51,7 @@
     gap: calc(10 * var(--width-multiplier));
   }
 }
-/* логотип 236×33 */
+
 .header__logo img {
   width: calc(236 * var(--width-multiplier));
   height: calc(33 * var(--width-multiplier));
@@ -81,7 +67,6 @@
   }
 }
 
-/* поиск: белое поле с оранжевой рамкой */
 .header-search {
   width: calc(340 * var(--width-multiplier));
   height: calc(32 * var(--width-multiplier));
@@ -102,7 +87,6 @@
   color: var(--color-dark-60);
 }
 
-/* правая группа: языки, телефон, две кнопки, бургер */
 .header__info-col {
   gap: calc(16 * var(--width-multiplier));
   margin-left: auto;
@@ -118,7 +102,7 @@
   color: var(--color-white);
   font-size: calc(16 * var(--width-multiplier));
 }
-/* на мобилке телефон в 375 не помещается рядом с лого и бургером */
+
 @media (max-width: 768px) {
   .header_hero .header__call {
     font-size: calc(12 * var(--width-multiplier));
@@ -138,8 +122,6 @@
   rotate: 180deg;
 }
 
-/* кнопки шапки — боевой .button: от него анимация, ховер и :active.
-   Здесь только размеры и фаска на всех четырёх углах */
 .header__btn {
   --cut: calc(10 * var(--width-multiplier));
   --mid: calc(10 * var(--width-multiplier));
@@ -154,23 +136,18 @@
   white-space: nowrap;
 }
 
-/* «Каталог 2027» — прозрачная с обводкой.
-   Рамку собираем из фоновых слоёв: четыре грани и четыре диагонали
-   на срезах. SVG тут не годится — при растяжении под ширину кнопки
-   его диагонали расходились с фаской clip-path и рамка двоилась.
-   Обычный border не подходит: clip-path срезал бы его по углам. */
 .header__btn_ghost {
   --line: var(--color-white-60);
 
   padding-inline: calc(20 * var(--width-multiplier));
   background-color: transparent;
   background-image:
-    /* грани: верх, низ, лево, право */
+    
     linear-gradient(var(--line), var(--line)),
     linear-gradient(var(--line), var(--line)),
     linear-gradient(var(--line), var(--line)),
     linear-gradient(var(--line), var(--line)),
-    /* срезы: левый верхний и правый нижний */
+    
     linear-gradient(
       to bottom right,
       transparent calc(50% - 0.5px),
@@ -185,7 +162,7 @@
       var(--line) calc(50% + 0.5px),
       transparent calc(50% + 0.5px)
     ),
-    /* срезы: правый верхний и левый нижний */
+    
     linear-gradient(
       to top right,
       transparent calc(50% - 0.5px),
@@ -237,7 +214,6 @@
   }
 }
 
-/* бургер: оранжевый квадрат 42×42 */
 .header_hero .burger {
   display: flex;
   flex-direction: column;
@@ -266,17 +242,11 @@
   }
 }
 
-/* при открытом меню шапка ложится на тёмный фон меню */
 .header.menu-active {
   background: transparent;
   -webkit-backdrop-filter: none;
   backdrop-filter: none;
 }
-
-/* ─── МЕНЮ ────────────────────────────────────────────────
-   Отступы, сетка и линии — целиком боевые, из css/style.css.
-   Здесь только то, чем макет отличается: цвет фона, шрифт
-   заголовков и подсветка текущего раздела. */
 
 .menu {
   background: var(--color-dark);
@@ -291,7 +261,7 @@
     font-size: calc(32 * var(--width-multiplier));
   }
 }
-/* состояние «текущий раздел» — класс вешает js/main.js */
+
 .menu__link_active {
   color: var(--color-primary);
   font-weight: 500;
@@ -303,14 +273,12 @@
   gap: calc(14 * var(--width-multiplier));
 }
 
-/* ═══ HERO ════════════════════════════════════════════════════ */
-
 .hero {
   position: relative;
   z-index: 0;
   display: flex;
   align-items: flex-start;
-  /* 200 — вместе с высотой хедера; снизу 100 до границы блока */
+  
   padding: calc(200 * var(--width-multiplier)) 0
     calc(100 * var(--width-multiplier));
   min-height: calc(800 * var(--width-multiplier));
@@ -391,7 +359,7 @@
 @media (max-width: 768px) {
   .hero__title {
     font-size: calc(30 * var(--width-multiplier));
-    /* десктопные 58 при кегле 30 давали 28 воздуха между строк — режем втрое */
+    
     line-height: calc(39 * var(--width-multiplier));
   }
   .hero__title br {
@@ -493,17 +461,13 @@
   }
 }
 
-/* ═══ SELECTION ═══════════════════════════════════════════════ */
-
-/* 140 сверху — отступ от hero; 70 снизу — половина отступа
-   до следующего блока (у него сверху будет свои 70) */
 .selection {
   padding: calc(140 * var(--width-multiplier)) 0
     calc(70 * var(--width-multiplier));
 }
 @media (max-width: 768px) {
   .selection {
-    /* первый блок после hero: сверху все 100, снизу половина */
+    
     padding: calc(100 * var(--width-multiplier)) 0
       calc(50 * var(--width-multiplier));
   }
@@ -624,9 +588,7 @@
   align-items: center;
   gap: calc(16 * var(--width-multiplier));
 }
-/* на мобилке три колонки в 375 не помещаются: подписи переносятся
-   по-разному и внутренние линии встают на разной высоте.
-   Раскладываем в две колонки, разделители — обычной сеткой */
+
 @media (max-width: 768px) {
   .selection-specs {
     display: grid;
@@ -644,7 +606,7 @@
     padding: calc(14 * var(--width-multiplier)) calc(6 * var(--width-multiplier));
     border-bottom: calc(1 * var(--width-multiplier)) solid var(--color-dark-20);
   }
-  /* первый .spec каждой колонки попадает в левый столбец сетки */
+  
   .selection-specs__col .spec:first-child {
     border-right: calc(1 * var(--width-multiplier)) solid var(--color-dark-20);
   }
@@ -711,9 +673,7 @@
     height: calc(380 * var(--width-multiplier));
   }
 }
-/* форму задаём контейнером, чтобы она была одна у всех фото,
-   а не только у той, где углы зашиты в саму картинку.
-   Срез 33.3 по обеим осям — ровно 45 градусов */
+
 .selection-slider {
   --cut: calc(33.3 * var(--width-multiplier));
 
@@ -759,7 +719,7 @@
   z-index: 2;
   width: calc(48 * var(--width-multiplier));
   height: calc(48 * var(--width-multiplier));
-  /* по макету: белый круг с прозрачностью, размытие подложки, тёмная стрелка */
+  
   border: none;
   background: var(--color-white-60);
   -webkit-backdrop-filter: blur(calc(4.5 * var(--width-multiplier)));
@@ -771,7 +731,7 @@
   height: calc(16 * var(--width-multiplier));
 }
 @media (hover: hover) and (pointer: fine) {
-  /* боевой ховер красит fill и вешает свечение — у нас stroke и плоская кнопка */
+  
   .selection__right .swiper-btn-arrow:hover {
     border: none;
     box-shadow: none;
@@ -802,8 +762,6 @@
     right: calc(10 * var(--width-multiplier));
   }
 }
-
-/* ═══ TECH ════════════════════════════════════════════════════ */
 
 .tech {
   padding: calc(70 * var(--width-multiplier)) 0;
@@ -980,9 +938,6 @@
   }
 }
 
-/* ═══ SAMPLES ═════════════════════════════════════════════════ */
-
-/* цветная плашка во всю ширину: 70 сверху от прошлого блока + его 70 = 140 */
 .samples {
   margin: calc(70 * var(--width-multiplier)) 0;
   padding: calc(50 * var(--width-multiplier)) 0;
@@ -1182,18 +1137,14 @@
 .samples-form__agree {
   width: 100%;
 }
-/* чекбокс согласия — боевой .form-agree со страницы «Нужна помощь»:
-   размер 24, скругление 4, галочка на ::before. Меняем только цвет:
-   на проде он белый под тёмный фон, у нас плашка светлая */
+
 .samples-form__agree .form-agree__label {
-  /* без flex-shrink квадратик сплющивало в полоску: на проде текст
-     ограничен max-width 280, а у нас строка длиннее и давит на него */
+  
   flex-shrink: 0;
   border-color: var(--color-dark-60);
   cursor: pointer;
 }
-/* без заливки: боевая галочка белая и на светлой плашке не видна,
-   поэтому перерисовываем её оранжевой */
+
 .samples-form__agree .form-agree__label::before {
   background-color: transparent;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14' fill='none'%3E%3Cpath d='M11.6667 3.5L5.25 9.91667L2.33333 7' stroke='%23f85b27' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
@@ -1242,8 +1193,6 @@
     0% var(--mid)
   );
 }
-
-/* ═══ ADVANTAGES ══════════════════════════════════════════════ */
 
 .advantages {
   padding: calc(70 * var(--width-multiplier)) 0;
@@ -1357,16 +1306,11 @@
   }
 }
 
-/* ═══ QUALITY ═════════════════════════════════════════════════ */
-
-/* полоса с фоновым фото во всю ширину; 70 сверху + 70 снизу
-   у соседних блоков дают 140 между секциями */
 .quality {
   margin: calc(70 * var(--width-multiplier)) 0;
   padding: calc(50 * var(--width-multiplier)) 0;
   background-image: url("../img/new/quality-bg.png");
-  /* картинка квадратная (1024×1024), а блок широкий:
-     держим кадр по центру и чуть выше низа, чтобы плитка не обрезалась */
+  
   background-position: center 60%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1558,8 +1502,6 @@
     line-height: calc(18 * var(--width-multiplier));
   }
 }
-
-/* ═══ CATALOG ═════════════════════════════════════════════════ */
 
 .catalog {
   padding: calc(70 * var(--width-multiplier)) 0;
@@ -1772,8 +1714,6 @@
   }
 }
 
-/* ═══ WHY ═════════════════════════════════════════════════════ */
-
 .why {
   padding: calc(70 * var(--width-multiplier)) 0;
 }
@@ -1909,10 +1849,6 @@
   }
 }
 
-/* ═══ ORDER ═══════════════════════════════════════════════════ */
-
-/* оранжевая полоса во всю ширину; 70 сверху и снизу
-   складываются с соседними блоками в 140 */
 .order {
   position: relative;
   z-index: 0;
@@ -1999,7 +1935,7 @@
     line-height: calc(22 * var(--width-multiplier));
   }
 }
-/* кнопка-инверсия: белая заливка, оранжевый текст */
+
 .order__btn {
   min-width: calc(321 * var(--width-multiplier));
   height: calc(50 * var(--width-multiplier));
@@ -2101,8 +2037,6 @@
     letter-spacing: calc(-1 * var(--width-multiplier));
   }
 }
-
-/* ═══ DESIGN ══════════════════════════════════════════════════ */
 
 .design {
   padding: calc(70 * var(--width-multiplier)) 0;
@@ -2335,10 +2269,6 @@
   }
 }
 
-/* ═══ ECO ═════════════════════════════════════════════════════ */
-
-/* светлая полоса во всю ширину; 70 сверху и снизу
-   складываются с соседними блоками в 140 */
 .eco {
   position: relative;
   z-index: 0;
@@ -2431,7 +2361,6 @@
   }
 }
 
-/* фото уходит за правый край полосы — обрезается overflow у секции */
 .eco__img {
   position: absolute;
   left: calc(717 * var(--width-multiplier));
@@ -2456,8 +2385,6 @@
   }
 }
 
-/* ═══ NEWS ════════════════════════════════════════════════════ */
-
 .news {
   padding: calc(70 * var(--width-multiplier)) 0;
 }
@@ -2466,8 +2393,7 @@
     padding: calc(50 * var(--width-multiplier)) 0;
   }
 }
-/* правая колонка начинается ровно с 678 — как в макете,
-   а не сразу за заголовком */
+
 .news__heading {
   display: grid;
   grid-template-columns: calc(678 * var(--width-multiplier)) 1fr;
@@ -2545,11 +2471,6 @@
   }
 }
 
-/* ─── КАРУСЕЛЬ ──────────────────────────────────────────────
-   боевой .swiper-hero-news: активный слайд раскрывается,
-   соседние торчат по бокам и обрезаются overflow'ом секции.
-   Здесь только подгон размеров под макет: 325 | 14 | 663 | 14 | 325 */
-
 .swiper-hero-news {
   max-width: calc(325 * var(--width-multiplier));
   margin-left: calc(339 * var(--width-multiplier));
@@ -2579,8 +2500,6 @@
   }
 }
 
-/* фаска в макете фиксированная (28), а не в процентах,
-   иначе она разъезжается при смене ширины активного слайда */
 .news .hero-news-card {
   --cut: calc(28 * var(--width-multiplier));
   --mid: calc(28 * var(--width-multiplier));
@@ -2634,11 +2553,6 @@
   }
 }
 
-/* ═══ FOOTER ══════════════════════════════════════════════════ */
-
-/* Правки поверх боевого .footer из css/style.css */
-
-/* 70 сверху + 70 снизу у блока новостей = 140 до футера */
 .footer {
   margin-top: calc(70 * var(--width-multiplier));
 }
@@ -2647,13 +2561,12 @@
     margin-top: calc(50 * var(--width-multiplier));
   }
 }
-/* .footer__logo — ссылка на всю ширину колонки, из-за чего кликалась пустота
-   справа от логотипа; ужимаем по содержимому */
+
 .footer__logo {
   width: -moz-fit-content;
   width: fit-content;
 }
-/* логотип в футере вертикальный (знак над надписью), пропорция 768x417 */
+
 .footer__logo img {
   width: calc(256 * var(--width-multiplier));
   height: auto;
@@ -2667,7 +2580,7 @@
     justify-content: center;
     margin-inline: auto;
   }
-  /* вдвое меньше прежнего мобильного: было во всю ширину, стало в половину */
+  
   .footer__logo img {
     width: calc(160 * var(--width-multiplier));
     height: auto;
@@ -2686,8 +2599,6 @@
   line-height: calc(17 * var(--width-multiplier));
 }
 
-/* заголовки колонок — Steelfish Bold 28, как в макете
-   (боевой .footer__navtitle — TT Firs Neue 500) */
 .footer__navtitle {
   font-family: "Steelfish", "TT Firs Neue", sans-serif;
   font-size: calc(28 * var(--width-multiplier));
@@ -2695,10 +2606,6 @@
   line-height: 1;
   letter-spacing: 0;
 }
-/* ═══ ТАЧ-УСТРОЙСТВА ══════════════════════════════════════
-   На проде каждый hover продублирован состоянием :active в
-   @media (hover: none) — на телефоне ховера нет, и без этого
-   нажатие никак не отзывается. Повторяем для своих элементов. */
 
 @media (hover: none) {
   .selection__right .swiper-btn-arrow:active {
