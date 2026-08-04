@@ -5,7 +5,6 @@
    --color-dark-muted и --width-multiplier объявлены в style.css,
    здесь только то, чего в нём не было. */
 :root {
-  --color-black: #000000;
   /* фоновые плашки блоков */
   --color-cream: #f9f7f5;
   --color-sand: #f5f3f0;
@@ -27,9 +26,6 @@
   --color-white-60: rgba(255, 255, 255, 0.6);
   --color-white-16: rgba(255, 255, 255, 0.16);
   --color-white-0: rgba(255, 255, 255, 0);
-  /* чистый чёрный: пришёл из макета, в палитре сайта его нет */
-  --color-black-60: rgba(0, 0, 0, 0.6);
-  --color-black-10: rgba(0, 0, 0, 0.1);
 }
 
 
@@ -2068,7 +2064,7 @@
 .design__line {
   width: 100%;
   height: calc(1 * var(--width-multiplier));
-  background: var(--color-black-10);
+  background: var(--color-dark-10);
   margin-top: calc(24 * var(--width-multiplier));
 }
 .design__label {
@@ -2156,7 +2152,7 @@
 }
 .design-item__desc {
   width: 100%;
-  color: var(--color-black-60);
+  color: var(--color-dark-60);
   font-size: calc(14 * var(--width-multiplier));
   font-weight: 400;
   line-height: calc(22 * var(--width-multiplier));
@@ -2397,7 +2393,7 @@
 .news__desc {
   width: calc(484 * var(--width-multiplier));
   max-width: 100%;
-  color: var(--color-black);
+  color: var(--color-dark);
   font-size: calc(16 * var(--width-multiplier));
   font-weight: 400;
   line-height: calc(19 * var(--width-multiplier));
