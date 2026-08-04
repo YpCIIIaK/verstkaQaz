@@ -1854,7 +1854,7 @@
   z-index: 0;
   margin: calc(70 * var(--width-multiplier)) 0;
   padding: calc(80 * var(--width-multiplier)) 0
-    calc(200 * var(--width-multiplier));
+    calc(160 * var(--width-multiplier));
   background: var(--color-primary);
   overflow: hidden;
 }
@@ -2015,7 +2015,7 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: calc(-82 * var(--width-multiplier));
+  bottom: calc(-40 * var(--width-multiplier));
   z-index: -1;
   color: var(--color-white-16);
   font-size: calc(190 * var(--width-multiplier));
