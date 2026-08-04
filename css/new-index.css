@@ -150,10 +150,12 @@
   transition: all 0.3s ease;
   clip-path: polygon(
     var(--cut) 0%,
-    100% 0%,
+    calc(100% - var(--cut)) 0%,
+    100% var(--cut),
     100% calc(100% - var(--cut)),
     calc(100% - var(--cut)) 100%,
-    0% 100%,
+    var(--cut) 100%,
+    0% calc(100% - var(--cut)),
     0% var(--cut)
   );
 }
@@ -164,7 +166,7 @@
   padding: 0 calc(20 * var(--width-multiplier));
   background: transparent;
   clip-path: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 142 42' preserveAspectRatio='none'%3E%3Cpath d='M10.5 0.5H141.5V31.5L131.5 41.5H0.5V10.5Z' fill='none' stroke='rgba(255,255,255,0.6)' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 142 42' preserveAspectRatio='none'%3E%3Cpath d='M10.5 0.5H131.5L141.5 10.5V31.5L131.5 41.5H10.5L0.5 31.5V10.5Z' fill='none' stroke='rgba(255,255,255,0.6)' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
