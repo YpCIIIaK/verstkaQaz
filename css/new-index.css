@@ -1262,7 +1262,7 @@
 .quality {
   margin: calc(70 * var(--width-multiplier)) 0;
   padding: calc(50 * var(--width-multiplier)) 0;
-  background-image: url("../img/quality-bg.png");
+  background-image: url("../img/new/quality-bg.png");
   /* картинка квадратная (1024×1024), а блок широкий:
      держим кадр по центру и чуть выше низа, чтобы плитка не обрезалась */
   background-position: center 60%;

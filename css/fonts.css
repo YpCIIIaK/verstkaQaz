@@ -4,12 +4,12 @@
    Steelfish — исключение: его на проде нет, папку fonts/Steelfish нужно
    положить в src/fonts/ и подключить её stylesheet.css. */
 
-@import url("../fonts/Steelfish/stylesheet.css");
+@import url("../fonts/new/Steelfish/stylesheet.css");
 
 @font-face {
   font-family: "TT Firs Neue";
-  src: url("../fonts/TTFirsNeue-Regular.woff2") format("woff2"),
-    url("../fonts/TTFirsNeue-Regular.woff") format("woff");
+  src: url("../fonts/existing/TTFirsNeue-Regular.woff2") format("woff2"),
+    url("../fonts/existing/TTFirsNeue-Regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -17,8 +17,8 @@
 
 @font-face {
   font-family: "TT Firs Neue";
-  src: url("../fonts/TTFirsNeue-Medium.woff2") format("woff2"),
-    url("../fonts/TTFirsNeue-Medium.woff") format("woff");
+  src: url("../fonts/existing/TTFirsNeue-Medium.woff2") format("woff2"),
+    url("../fonts/existing/TTFirsNeue-Medium.woff") format("woff");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -26,8 +26,8 @@
 
 @font-face {
   font-family: "TT Firs Neue";
-  src: url("../fonts/TTFirsNeue-DemiBold.woff2") format("woff2"),
-    url("../fonts/TTFirsNeue-DemiBold.woff") format("woff");
+  src: url("../fonts/existing/TTFirsNeue-DemiBold.woff2") format("woff2"),
+    url("../fonts/existing/TTFirsNeue-DemiBold.woff") format("woff");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -35,8 +35,8 @@
 
 @font-face {
   font-family: "TT Firs Neue";
-  src: url("../fonts/TTFirsNeue-Bold.woff2") format("woff2"),
-    url("../fonts/TTFirsNeue-Bold.woff") format("woff");
+  src: url("../fonts/existing/TTFirsNeue-Bold.woff2") format("woff2"),
+    url("../fonts/existing/TTFirsNeue-Bold.woff") format("woff");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -44,8 +44,8 @@
 
 @font-face {
   font-family: "TT Firs Neue";
-  src: url("../fonts/TTFirsNeue-Black.woff2") format("woff2"),
-    url("../fonts/TTFirsNeue-Black.woff") format("woff");
+  src: url("../fonts/existing/TTFirsNeue-Black.woff2") format("woff2"),
+    url("../fonts/existing/TTFirsNeue-Black.woff") format("woff");
   font-weight: 900;
   font-style: normal;
   font-display: swap;
