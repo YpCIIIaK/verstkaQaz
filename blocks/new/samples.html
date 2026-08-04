@@ -1,3 +1,7 @@
+<!-- ────────────────────────────────────────────────────────────────
+     NEW — заказать образцы
+     чекбокс согласия — боевой компонент .form-agree
+     ──────────────────────────────────────────────────────────────── -->
 <section class="samples">
   <div class="container">
     <div class="samples__box">
@@ -85,16 +89,18 @@
           <input type="submit" class="button samples-form__submit" value="Отправить" />
 
           <div class="form-agree samples-form__agree">
-            <input type="checkbox" id="samples-agree" class="samples-form__checkbox" />
-            <label for="samples-agree" class="samples-form__agreedesc">
-              Нажимая кнопку вы соглашаетесь с политикой конфиденциальности
+            <input type="checkbox" id="samples-agree" class="form-agree__checkbox" />
+            <label for="samples-agree" class="form-agree__label"></label>
+            <label for="samples-agree" class="form-agree__desc">
+              Нажимая кнопку вы соглашаетесь с
+              <a href="/policy" class="link">политикой конфиденциальности</a>
             </label>
           </div>
         </form>
       </div>
 
       <div class="samples__right">
-        <img src="csddfs.png" class="samples__img" alt="" />
+        <img src="img/new/samples.png" class="samples__img" alt="" />
       </div>
     </div>
   </div>

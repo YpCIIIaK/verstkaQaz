@@ -9,12 +9,20 @@
 то, что появилось для этой страницы.
 
 ```
-index.html                  разметка страницы целиком.
-                            Каждый блок помечен комментарием EXISTING или NEW:
-                            EXISTING — шапка с меню, новости, футер, модалка
-                            NEW      — остальные 11 секций
+index.html                  собранная страница, открывать её
+build.ps1                   пересобирает index.html из blocks/
 
-css/existing/               копии боевых файлов, лежат тут только ради превью
+blocks/existing/            блоки, взятые с боевого сайта
+  header.html               шапка и меню
+  news.html                 карусель новостей
+  footer.html               футер
+  modal.html                модальное окно заявки
+blocks/new/                 новые блоки макета
+  hero.html  selection.html  tech.html  samples.html
+  advantages.html  quality.html  catalog.html  why.html
+  order.html  design.html  eco.html
+
+css/existing/               копии боевых файлов, лежат тут ради превью
   style.css                 /local/templates/qazclincker/css/style.css
   normalize.css             /local/templates/qazclincker/css/normalize.css
   swiper-bundle.min.css
@@ -35,10 +43,10 @@ img/new/                    новые картинки макета
 
 fonts/existing/             TT Firs Neue, на сайте подключён
 fonts/new/Steelfish/        новый шрифт, на сайте его нет
-
-_blocks/                    прежняя поблочная вёрстка, справочно
-_site/                      скачанная копия прода, вне git
 ```
+
+Правки вносим в `blocks/`, потом `pwsh -File build.ps1`.
+Править `index.html` напрямую бесполезно — пересборка его перезапишет.
 
 ## Соглашения по вёрстке
 
