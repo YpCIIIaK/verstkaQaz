@@ -2368,7 +2368,7 @@
   transform: translateY(-50%);
   z-index: -1;
   width: calc(725 * var(--width-multiplier));
-  height: calc(483 * var(--width-multiplier));
+  height: calc(450 * var(--width-multiplier));
   -o-object-fit: cover;
   object-fit: cover;
 }
