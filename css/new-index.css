@@ -118,6 +118,13 @@
   color: var(--color-white);
   font-size: calc(16 * var(--width-multiplier));
 }
+/* на мобилке телефон в 375 не помещается рядом с лого и бургером */
+@media (max-width: 768px) {
+  .header_hero .header__call {
+    font-size: calc(12 * var(--width-multiplier));
+    white-space: nowrap;
+  }
+}
 .langs__arrow {
   flex-shrink: 0;
   width: calc(16 * var(--width-multiplier));
