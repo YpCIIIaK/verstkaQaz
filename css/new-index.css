@@ -2015,7 +2015,7 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: calc(-40 * var(--width-multiplier));
+  bottom: calc(-84 * var(--width-multiplier));
   z-index: -1;
   color: var(--color-white-16);
   font-size: calc(190 * var(--width-multiplier));
