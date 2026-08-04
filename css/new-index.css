@@ -1038,35 +1038,28 @@
 .samples-form__agree {
   width: 100%;
 }
-.samples-form__checkbox {
-  flex-shrink: 0;
-  cursor: pointer;
+/* чекбокс согласия — боевой .form-agree; на проде он рассчитан
+   на тёмный фон, у нас плашка светлая, поэтому только перекрашиваем */
+.samples-form__agree .form-agree__label {
   width: calc(17 * var(--width-multiplier));
   height: calc(17 * var(--width-multiplier));
-  border: calc(1 * var(--width-multiplier)) solid rgba(37, 35, 35, 0.6);
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: calc(11 * var(--width-multiplier));
-  transition: all 0.3s ease;
+  border-color: rgba(37, 35, 35, 0.6);
+  cursor: pointer;
 }
-.samples-form__checkbox:checked {
+/* именно background-color: сокращённый background стёр бы галочку,
+   она приходит из боевого background-image */
+.samples-form__agree .form-agree__label::before {
   background-color: #f85b27;
-  border-color: #f85b27;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M1.5 6.5L4.5 9.5L10.5 2.5' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 }
-.samples-form__agreedesc {
+.samples-form__agree .form-agree__desc {
   cursor: pointer;
   color: rgba(37, 35, 35, 0.6);
   font-size: calc(12 * var(--width-multiplier));
   font-weight: 400;
   line-height: 1.2;
-  letter-spacing: 0;
 }
 @media (max-width: 768px) {
-  .samples-form__agreedesc {
+  .samples-form__agree .form-agree__desc {
     font-size: calc(11 * var(--width-multiplier));
   }
 }

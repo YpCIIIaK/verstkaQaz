@@ -451,9 +451,11 @@
           <input type="submit" class="button samples-form__submit" value="Отправить" />
 
           <div class="form-agree samples-form__agree">
-            <input type="checkbox" id="samples-agree" class="samples-form__checkbox" />
-            <label for="samples-agree" class="samples-form__agreedesc">
-              Нажимая кнопку вы соглашаетесь с политикой конфиденциальности
+            <input type="checkbox" id="samples-agree" class="form-agree__checkbox" />
+            <label for="samples-agree" class="form-agree__label"></label>
+            <label for="samples-agree" class="form-agree__desc">
+              Нажимая кнопку вы соглашаетесь с
+              <a href="/policy" class="link">политикой конфиденциальности</a>
             </label>
           </div>
         </form>
@@ -932,6 +934,32 @@
     </div>
   </div>
 </footer>
+
+  <div class="modal call-form" data-modal="modal-1">
+    <div class="modal-inner">
+      <div class="modal-inner__box">
+        <div class="modal__head">
+          <h2 class="modal__title">Оставить заявку</h2>
+          <div class="modal__close" data-modal-close="">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <path
+                d="M8.53366 25.3333L6.66699 23.4667L14.1337 16L6.66699 8.53333L8.53366 6.66667L16.0003 14.1333L23.467 6.66667L25.3337 8.53333L17.867 16L25.3337 23.4667L23.467 25.3333L16.0003 17.8667L8.53366 25.3333Z"
+                fill="#1D1B20"></path>
+            </svg>
+          </div>
+        </div>
+        <div class="modal__body">
+          <form class="modal-form call-form-wr">
+            <input type="text" name="name" placeholder="Имя" class="modal-input" />
+            <input type="text" name="phone" placeholder="Телефон" class="modal-input tel-input" required />
+            <input type="text" name="email" placeholder="Почта" class="modal-input" />
+            <input type="submit" class="button modal-form__submit" value="Отправить" />
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- ── боевые скрипты сайта: копия с прода, НЕ править ── -->
   <script src="js/existing/imask.js"></script>
   <script src="js/existing/swiper-bundle.min.js"></script>
