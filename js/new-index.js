@@ -97,8 +97,7 @@ const swiperHeroNews = new Swiper(".swiper-hero-news", {
 });
 
 (function () {
-  const EASE = 0.18;
-  const SPEED = 1.6;
+  const EASE = 0.15;
   const media = window.matchMedia("(max-width: 768px)");
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
 
@@ -129,7 +128,7 @@ const swiperHeroNews = new Swiper(".swiper-hero-news", {
 
     if (!animating) target = window.scrollY;
 
-    target = Math.max(0, Math.min(target + e.deltaY * SPEED, maxScroll()));
+    target = Math.max(0, Math.min(target + e.deltaY, maxScroll()));
     e.preventDefault();
 
     if (!animating) {
