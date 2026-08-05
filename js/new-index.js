@@ -101,22 +101,25 @@ const swiperHeroNews = new Swiper(".swiper-hero-news", {
   const media = window.matchMedia("(max-width: 768px)");
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-  let target = window.scrollY;
+  let current = window.scrollY;
+  let target = current;
   let animating = false;
 
   const maxScroll = () =>
     Math.max(document.documentElement.scrollHeight - window.innerHeight, 0);
 
   const step = () => {
-    const delta = (target - window.scrollY) * EASE;
+    const delta = target - current;
 
-    if (Math.abs(delta) < 0.5) {
-      window.scrollTo({ top: target, behavior: "instant" });
+    if (Math.abs(delta) < 0.1) {
+      current = target;
+      window.scrollTo({ top: current, behavior: "instant" });
       animating = false;
       return;
     }
 
-    window.scrollTo({ top: window.scrollY + delta, behavior: "instant" });
+    current += delta * EASE;
+    window.scrollTo({ top: current, behavior: "instant" });
     requestAnimationFrame(step);
   };
 
@@ -124,9 +127,12 @@ const swiperHeroNews = new Swiper(".swiper-hero-news", {
     if (media.matches || reduced.matches) return;
     if (document.body.classList.contains("noscroll")) return;
     if (e.ctrlKey) return;
-    if (e.target.closest(".swiper, .modal, [data-lenis-prevent]")) return;
+    if (e.target.closest(".modal")) return;
 
-    if (!animating) target = window.scrollY;
+    if (!animating) {
+      current = window.scrollY;
+      target = current;
+    }
 
     target = Math.max(0, Math.min(target + e.deltaY, maxScroll()));
     e.preventDefault();
@@ -139,7 +145,8 @@ const swiperHeroNews = new Swiper(".swiper-hero-news", {
 
   const stop = () => {
     animating = false;
-    target = window.scrollY;
+    current = window.scrollY;
+    target = current;
   };
 
   window.addEventListener("wheel", onWheel, { passive: false });
