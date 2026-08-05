@@ -97,7 +97,7 @@ const swiperHeroNews = new Swiper(".swiper-hero-news", {
 });
 
 (function () {
-  const EASE = 0.15;
+  const EASE = 0.09;
   const media = window.matchMedia("(max-width: 768px)");
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
 
