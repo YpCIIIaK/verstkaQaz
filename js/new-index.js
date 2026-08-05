@@ -11,9 +11,6 @@
   });
 })();
 
-/* Переключалка картинок в блоке «Клинкерная плитка...».
-   Без Swiper: без драга и без горизонтального проезда, только фейд. */
-
 document.querySelectorAll(".selection-slider").forEach((slider) => {
   const slides = slider.querySelectorAll(".selection-slider__img");
   if (slides.length < 2) return;
@@ -36,10 +33,6 @@ document.querySelectorAll(".selection-slider").forEach((slider) => {
 
   show(0);
 });
-
-/* Дописать в js/main.js рядом с остальными обработчиками форм.
-   Логика один в один как у call-form-wr / coop-form / prod-form-wr.
-   ВАЖНО: на бэке нужен файл ajax/forms/samples_form.php */
 
 let samplesForm = document.querySelector(".samples-form-wr");
 if (samplesForm) {
