@@ -139,3 +139,13 @@ const swiperHeroNews = new Swiper(".swiper-hero-news", {
   media.addEventListener("change", apply);
   apply();
 })();
+
+document.querySelectorAll("video.hero__bg").forEach((video) => {
+  new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) video.play().catch(() => {});
+      else video.pause();
+    },
+    { threshold: 0 }
+  ).observe(video);
+});
