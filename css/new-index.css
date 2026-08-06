@@ -3,6 +3,11 @@ body {
   scroll-behavior: auto;
 }
 
+main > section:not(.hero) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 700px;
+}
+
 html.smooth-scroll #smooth-wrapper {
   position: fixed;
   top: 0;
