@@ -1347,7 +1347,7 @@ html.smooth-scroll #smooth-content {
 .quality {
   margin: calc(70 * var(--width-multiplier)) 0;
   padding: calc(50 * var(--width-multiplier)) 0;
-  background-image: url("../img/new/quality-lab.png");
+  background-image: url("../img/new/quality-lab.webp");
   
   background-position: center 60%;
   background-size: cover;

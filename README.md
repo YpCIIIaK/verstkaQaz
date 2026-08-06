@@ -39,13 +39,13 @@ img/existing/               уже лежит на сервере
   footer-bg.svg             src/icons/footer-bg.svg
   video/hero.mp4            src/videos/0116.mp4
 img/new/                    новые картинки макета
-  selection-facade.png      фасад в блоке подбора
-  samples-tile.png          плитка в форме заказа образцов
-  quality-lab.png           фон блока контроля качества
-  order-sample-1..3.png     образцы в оранжевом блоке
-  design-project.png        блок дизайн-проекта
-  eco-production.png        блок экологичности
-  news-1.png  news-2.jpg  news-3.jpg   обложки новостей
+  selection-facade.webp      фасад в блоке подбора
+  samples-tile.webp          плитка в форме заказа образцов
+  quality-lab.webp           фон блока контроля качества
+  order-sample-1..3.webp     образцы в оранжевом блоке
+  design-project.webp        блок дизайн-проекта
+  eco-production.webp        блок экологичности
+  news-1.webp  news-2.webp  news-3.webp   обложки новостей
   logo-header.png  logo-footer.png     логотипы
   logos/                    логотипы партнёров: sabo, keller, smac, plinfa
 
