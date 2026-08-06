@@ -105,6 +105,7 @@ const swiperHeroNews = new Swiper(".swiper-hero-news", {
   const off = () => {
     if (raf) cancelAnimationFrame(raf);
     raf = null;
+    document.documentElement.classList.remove("smooth-scroll");
     content.style.transform = "";
     document.body.style.height = "";
   };
@@ -121,6 +122,7 @@ const swiperHeroNews = new Swiper(".swiper-hero-news", {
   };
 
   const on = () => {
+    document.documentElement.classList.add("smooth-scroll");
     resize();
     current = window.scrollY;
     if (!raf) raf = requestAnimationFrame(loop);

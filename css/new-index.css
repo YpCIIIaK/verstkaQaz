@@ -3,7 +3,7 @@ body {
   scroll-behavior: auto;
 }
 
-#smooth-wrapper {
+html.smooth-scroll #smooth-wrapper {
   position: fixed;
   top: 0;
   left: 0;
@@ -12,18 +12,8 @@ body {
   overflow: hidden;
   z-index: 0;
 }
-#smooth-content {
+html.smooth-scroll #smooth-content {
   will-change: transform;
-}
-@media (max-width: 768px) {
-  #smooth-wrapper {
-    position: static;
-    height: auto;
-    overflow: visible;
-  }
-  #smooth-content {
-    will-change: auto;
-  }
 }
 
 :root {
