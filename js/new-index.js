@@ -97,6 +97,7 @@ const swiperHeroNews = new Swiper(".swiper-hero-news", {
 
   const media = window.matchMedia("(max-width: 768px)");
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const firefox = CSS.supports("-moz-appearance", "none");
 
   let current = 0;
   let raf = null;
@@ -127,7 +128,8 @@ const swiperHeroNews = new Swiper(".swiper-hero-news", {
     if (!raf) raf = requestAnimationFrame(loop);
   };
 
-  const apply = () => (media.matches || reduced.matches ? off() : on());
+  const apply = () =>
+    media.matches || reduced.matches || firefox ? off() : on();
 
   new ResizeObserver(() => {
     if (raf) resize();
