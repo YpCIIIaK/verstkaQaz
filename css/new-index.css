@@ -46,20 +46,6 @@ html.smooth-scroll #smooth-content {
   -webkit-backdrop-filter: blur(calc(4 * var(--width-multiplier)));
   backdrop-filter: blur(calc(4 * var(--width-multiplier)));
 }
-@supports (-moz-appearance: none) {
-  .header_hero,
-  .header_hero.scrolled {
-    background: rgba(37, 35, 35, 0.85);
-    -webkit-backdrop-filter: none;
-    backdrop-filter: none;
-  }
-  .selection__right .swiper-btn-arrow {
-    background: rgba(255, 255, 255, 0.85);
-    -webkit-backdrop-filter: none;
-    backdrop-filter: none;
-  }
-}
-
 .header__box {
   display: flex;
   flex-direction: column;
