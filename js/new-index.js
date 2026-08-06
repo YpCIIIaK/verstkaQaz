@@ -90,8 +90,7 @@ const swiperHeroNews = new Swiper(".swiper-hero-news", {
 });
 
 (function () {
-  const firefox = CSS.supports("-moz-appearance", "none");
-  const EASE = firefox ? 0.01 : 0.1;
+  const EASE = 0.1;
   const wrapper = document.getElementById("smooth-wrapper");
   const content = document.getElementById("smooth-content");
   if (!wrapper || !content) return;
