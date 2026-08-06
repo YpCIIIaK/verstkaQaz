@@ -106,13 +106,13 @@ const swiperHeroNews = new Swiper(".swiper-hero-news", {
 
     if (Math.abs(delta) < 0.1) {
       current = target;
-      window.scrollTo({ top: current, behavior: "instant" });
+      document.scrollingElement.scrollTop = current;
       animating = false;
       return;
     }
 
     current += delta * EASE;
-    window.scrollTo({ top: current, behavior: "instant" });
+    document.scrollingElement.scrollTop = current;
     requestAnimationFrame(step);
   };
 
