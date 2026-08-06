@@ -15,10 +15,14 @@ function Get-Block($name) {
 
 $body = @()
 $body += Get-Block $header
+$body += '<div id="smooth-wrapper">'
+$body += '<div id="smooth-content">'
 $body += "<main>"
 foreach ($n in $main) { $body += Get-Block $n }
 $body += "</main>"
 $body += Get-Block $footer
+$body += "</div>"
+$body += "</div>"
 $body += Get-Block $modal
 $bodyText = $body -join "`r`n`r`n"
 

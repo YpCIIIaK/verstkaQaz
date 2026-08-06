@@ -90,60 +90,48 @@ const swiperHeroNews = new Swiper(".swiper-hero-news", {
 });
 
 (function () {
-  const EASE = 0.06;
+  const EASE = 0.1;
+  const wrapper = document.getElementById("smooth-wrapper");
+  const content = document.getElementById("smooth-content");
+  if (!wrapper || !content) return;
+
   const media = window.matchMedia("(max-width: 768px)");
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-  let current = window.scrollY;
-  let target = current;
-  let animating = false;
+  let current = 0;
+  let raf = null;
 
-  const maxScroll = () =>
-    Math.max(document.documentElement.scrollHeight - window.innerHeight, 0);
-
-  const step = () => {
-    const delta = target - current;
-
-    if (Math.abs(delta) < 0.1) {
-      current = target;
-      document.scrollingElement.scrollTop = current;
-      animating = false;
-      return;
-    }
-
-    current += delta * EASE;
-    document.scrollingElement.scrollTop = current;
-    requestAnimationFrame(step);
+  const off = () => {
+    if (raf) cancelAnimationFrame(raf);
+    raf = null;
+    content.style.transform = "";
+    document.body.style.height = "";
   };
 
-  const onWheel = (e) => {
-    if (media.matches || reduced.matches) return;
-    if (document.body.classList.contains("noscroll")) return;
-    if (e.ctrlKey) return;
-    if (e.target.closest(".modal")) return;
-
-    if (!animating) {
-      current = window.scrollY;
-      target = current;
-    }
-
-    target = Math.max(0, Math.min(target + e.deltaY, maxScroll()));
-    e.preventDefault();
-
-    if (!animating) {
-      animating = true;
-      requestAnimationFrame(step);
-    }
+  const resize = () => {
+    document.body.style.height = content.getBoundingClientRect().height + "px";
   };
 
-  const stop = () => {
-    animating = false;
+  const loop = () => {
+    current += (window.scrollY - current) * EASE;
+    if (Math.abs(window.scrollY - current) < 0.05) current = window.scrollY;
+    content.style.transform = "translate3d(0, " + -current + "px, 0)";
+    raf = requestAnimationFrame(loop);
+  };
+
+  const on = () => {
+    resize();
     current = window.scrollY;
-    target = current;
+    if (!raf) raf = requestAnimationFrame(loop);
   };
 
-  window.addEventListener("wheel", onWheel, { passive: false });
-  window.addEventListener("keydown", stop);
-  window.addEventListener("mousedown", stop);
-  window.addEventListener("resize", stop);
+  const apply = () => (media.matches || reduced.matches ? off() : on());
+
+  new ResizeObserver(() => {
+    if (raf) resize();
+  }).observe(content);
+
+  window.addEventListener("resize", apply);
+  media.addEventListener("change", apply);
+  apply();
 })();

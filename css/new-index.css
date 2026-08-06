@@ -3,6 +3,29 @@ body {
   scroll-behavior: auto;
 }
 
+#smooth-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+#smooth-content {
+  will-change: transform;
+}
+@media (max-width: 768px) {
+  #smooth-wrapper {
+    position: static;
+    height: auto;
+    overflow: visible;
+  }
+  #smooth-content {
+    will-change: auto;
+  }
+}
+
 :root {
   
   --color-cream: #f9f7f5;
